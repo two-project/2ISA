@@ -22,7 +22,8 @@
             
             // repo specific
             "mathematic.vscode-latex",
-            "ms-vscode.makefile-tools"
+            "ms-vscode.makefile-tools",
+            "james-yu.latex-workshop"
         ]
     }
 }

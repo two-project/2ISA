@@ -50,7 +50,7 @@
 
 \begin{center}
     \huge{\textbf{ 2 Instruction Set Architecture }} \\
-    \huge{\textbf{ Memory Specification }}\\
+    \huge{\textbf{ Instruction Specification }}\\
     \hspace{200pt}\\
     % I usually like to keep this all lowercase to keep the character y-height the same
     \textsc{ reduced instruction set } \\
@@ -66,6 +66,32 @@
 \tableofcontents
 \newpage
 
-\section{Introduction}
+\section{Instruction Encoding}
+
+When encoding instructions, the following format is used:
+
+\begin{center}
+\begin{tabular}{ c c c c }
+    \textbf{31-26} & \textbf{25-21} & \textbf{20-16} & \textbf{15-0} \\
+    \hline
+    opcode & output register & input register & value \\
+\end{tabular}
+\end{center}
+
+\subsection{Opcode Format}
+
+$6$ bits are reserved for the opcode, meaning that we can represent up to $64$
+different instructions.
+
+This allows us to expand upon the instruction set in the future.
+
+\subsection{IO Register Format}
+
+Registers are represented by 4 bits, allowing us to have up to $16$ registers.
+
+\subsection{Value Format}
+
+The value field is $16$ bits, allowing us to represent values from $0$ to
+$65535$.
 
 \end{document}
