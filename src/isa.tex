@@ -74,7 +74,7 @@ When encoding instructions, the following format is used:
 \begin{tabular}{ c c c c }
     \textbf{31-26} & \textbf{25-21} & \textbf{20-16} & \textbf{15-0} \\
     \hline
-    opcode & output register & input register & value \\
+    opcode & argument 1 & argument 2 & value \\
 \end{tabular}
 \end{center}
 
@@ -93,5 +93,48 @@ Registers are represented by 4 bits, allowing us to have up to $16$ registers.
 
 The value field is $16$ bits, allowing us to represent values from $0$ to
 $65535$.
+
+\section{Opcode Table}
+
+\begin{center}
+\begin{tabular}{ c c c c c }
+    \textbf{Opcode} & \textbf{Binary} & \textbf{Instruction} & \textbf{Description} \\
+    \hline
+    x00 & b000000 & \texttt{NOOP} & Performs no operation \\
+
+    \hline
+
+    x01 & b000001 & \texttt{MOVE} & Moves a value into a register \\
+
+    \hline
+
+    x02 & b000010 & \texttt{PUSH} & Pushes a value onto the stack \\
+    x03 & b000011 & \texttt{POP} & Pops a value from the stack \\
+    x04 & b000100 & \texttt{LOAD} & Loads a value from memory \\
+    x05 & b000101 & \texttt{STORE} & Stores a value in memory \\
+
+    \hline
+
+    x06 & b000110 & \texttt{AND} & Performs a bitwise AND operation \\
+    x07 & b000111 & \texttt{OR} & Performs a bitwise OR operation \\
+    x08 & b001000 & \texttt{XOR} & Performs a bitwise XOR operation \\
+    x09 & b001001 & \texttt{NOT} & Performs a bitwise NOT operation \\
+
+    \hline
+
+    x0A & b001010 & \texttt{ADD} & Adds two values together \\
+    x0B & b001011 & \texttt{SUB} & Subtracts two values \\
+    x0C & b001100 & \texttt{MUL} & Multiplies two values \\
+    x0D & b001101 & \texttt{DIV} & Divides two values \\
+    x0E & b001110 & \texttt{MOD} & Performs a modulo operation \\
+\end{tabular}
+\end{center}
+
+% \section{Register Table}
+
+% \begin{center}
+% \begin{tabular}{c c}
+% \end{tabular}
+% \end{center}
 
 \end{document}
