@@ -119,22 +119,48 @@ $65535$.
     x07 & b000111 & \texttt{OR} & Performs a bitwise OR operation \\
     x08 & b001000 & \texttt{XOR} & Performs a bitwise XOR operation \\
     x09 & b001001 & \texttt{NOT} & Performs a bitwise NOT operation \\
+    x0A & b001111 & \texttt{CMP} & Compares two values \\
 
     \hline
 
-    x0A & b001010 & \texttt{ADD} & Adds two values together \\
-    x0B & b001011 & \texttt{SUB} & Subtracts two values \\
-    x0C & b001100 & \texttt{MUL} & Multiplies two values \\
-    x0D & b001101 & \texttt{DIV} & Divides two values \\
-    x0E & b001110 & \texttt{MOD} & Performs a modulo operation \\
+    x0B & b001010 & \texttt{ADD} & Adds two values together \\
+    x0C & b001011 & \texttt{SUB} & Subtracts two values \\
+    x0D & b001100 & \texttt{MUL} & Multiplies two values \\
+    x0E & b001101 & \texttt{DIV} & Divides two values \\
+    x0F & b001110 & \texttt{MOD} & Performs a modulo operation \\
+
+    \hline
+
+    x10 & b010001 & \texttt{EXECUTE} & Execute the current command \\
+    x12 & b010010 & \texttt{JUMP} & Jump to a specific memory location \\
 \end{tabular}
 \end{center}
 
-% \section{Register Table}
+\section{Register Table}
 
-% \begin{center}
-% \begin{tabular}{c c}
-% \end{tabular}
-% \end{center}
+Each register is represented by a 4-bit value.
+
+\begin{center}
+\begin{tabular}{c c c}
+    \textbf{Value} & \textbf{Binary} & \textbf{Register} \\
+    \hline
+
+    x0 & b0000 & \texttt{NULL} \\
+
+    \hline
+
+    x1 & b0001 & \texttt{CMD} \\
+    x2 & b0010 & \texttt{RETURN} \\
+    x3 & b0011 & \texttt{STACK} \\
+
+    \hline
+
+    x4 & b0100 & \texttt{ARG 1} \\
+    x5 & b0101 & \texttt{ARG 2} \\
+    x6 & b0110 & \texttt{ARG 3} \\
+    x7 & b0111 & \texttt{ARG 4} \\
+    x8 & b1000 & \texttt{ARG 5} \\
+\end{tabular}
+\end{center}
 
 \end{document}
