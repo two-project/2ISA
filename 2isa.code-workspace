@@ -12,14 +12,17 @@
     },
     "extensions": {
         "recommendations": [
-            "mathematic.vscode-latex",
             "aaron-bond.better-comments",
             "streetsidesoftware.code-spell-checker",
             "visualstudioexptteam.vscodeintellicode",
             "visualstudioexptteam.intellicode-api-usage-examples",
             "yzhang.markdown-all-in-one",
             "davidanson.vscode-markdownlint",
-            "pkief.material-icon-theme"
+            "pkief.material-icon-theme",
+            
+            // repo specific
+            "mathematic.vscode-latex",
+            "ms-vscode.makefile-tools"
         ]
     }
 }

@@ -1,1 +1,1 @@
-# 2 CPU Architecture
+# 2 Instruction Set Architecture
