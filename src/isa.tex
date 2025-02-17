@@ -84,10 +84,17 @@ All instructions use little endian format.
 
 \subsection{Opcode Format}
 
-$6$ bits are reserved for the opcode, meaning that we can represent up to $64$
+\begin{itemize}
+    \item $6$ bits are reserved for the opcode, meaning that we can represent up to $64$
 different instructions.
+    \item This allows us to expand upon the instruction set in the future.
+    \item Most opcodes have both a value and register counterpart.
+    \item Using the register version of an opcode will dereference the register and use
+the value stored in the register.
+    \item Alternatively, you can create pointers by using the registers location as a
+value during the value version of the opcode.
+\end{itemize}
 
-This allows us to expand upon the instruction set in the future.
 
 \subsection{IO Register Format}
 
@@ -108,35 +115,48 @@ $65535$.
 
     \hline
 
-    x01 & b000001 & \texttt{MOVE} & Moves a value into a register \\
+    x01 & b000001 & \texttt{MOVE\_VAL} & Moves a value into a register \\
+    x02 & b000010 & \texttt{MOVE\_REG} & Moves a registers value into a register \\
 
     \hline
 
-    x02 & b000010 & \texttt{PUSH} & Pushes a value onto the stack \\
-    x03 & b000011 & \texttt{POP} & Pops a value from the stack \\
-    x04 & b000100 & \texttt{LOAD} & Loads a value from memory \\
-    x05 & b000101 & \texttt{STORE} & Stores a value in memory \\
+    x03 & b000011 & \texttt{PUSH\_VAL} & Pushes a value onto the stack \\
+    x04 & b000100 & \texttt{PUSH\_REG} & Pushes a registers value onto the stack \\
+
+    x05 & b000101 & \texttt{POP\_VAL} & Pops a value from the stack \\
+    x06 & b000110 & \texttt{POP\_REG} & Pops a value from the stack \\
+
+    x07 & b000111 & \texttt{LOAD\_VAL} & Loads a value from memory \\
+    x08 & b001000 & \texttt{NOOP} & reserved \\
+
+    x09 & b001001 & \texttt{STORE\_VAL} & Stores a value in memory \\
+    x0A & b001010 & \texttt{STORE\_REG} & Stores a registers value in memory \\
 
     \hline
 
-    x06 & b000110 & \texttt{AND} & Performs a bitwise AND operation \\
-    x07 & b000111 & \texttt{OR} & Performs a bitwise OR operation \\
-    x08 & b001000 & \texttt{XOR} & Performs a bitwise XOR operation \\
-    x09 & b001001 & \texttt{NOT} & Performs a bitwise NOT operation \\
-    x0A & b001111 & \texttt{CMP} & Compares two values \\
+    x0B & b001011 & \texttt{AND} & Performs a bitwise AND operation \\
+    x0C & b001100 & \texttt{OR} & Performs a bitwise OR operation \\
+    x0D & b001101 & \texttt{XOR} & Performs a bitwise XOR operation \\
+    x0E & b001110 & \texttt{NOT} & Performs a bitwise NOT operation \\
+    x0F & b001111 & \texttt{CMP} & Compares two values \\
 
     \hline
 
-    x0B & b001010 & \texttt{ADD} & Adds two values together \\
-    x0C & b001011 & \texttt{SUB} & Subtracts two values \\
-    x0D & b001100 & \texttt{MUL} & Multiplies two values \\
-    x0E & b001101 & \texttt{DIV} & Divides two values \\
-    x0F & b001110 & \texttt{MOD} & Performs a modulo operation \\
+    x10 & b010000 & \texttt{ADD} & Adds two values together \\
+    x11 & b010001 & \texttt{SUB} & Subtracts two values \\
+    x12 & b010010 & \texttt{MUL} & Multiplies two values \\
+    x13 & b010011 & \texttt{DIV} & Divides two values \\
+    x14 & b010100 & \texttt{MOD} & Performs a modulo operation \\
 
     \hline
 
-    x10 & b010001 & \texttt{EXECUTE} & Execute the current command \\
-    x12 & b010010 & \texttt{JUMP} & Jump to a specific memory location \\
+    x15 & b010101 & \texttt{JUMP} & Jump to memory location \\
+
+    x16 & b010101 & \texttt{JUMP\_IF} & Jump to memory location if truthy \\
+
+    \hline
+
+    x3F & b111111 & \texttt{EXECUTE} & Execute the current command \\
 \end{tabular}
 \end{center}
 
